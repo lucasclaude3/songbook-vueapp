@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <LoginComponent msg="YOLO"/>
+        <LoginComponent msg="Hello"/>
     </div>    
 </template>
 
