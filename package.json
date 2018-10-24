@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "apollo-boost": "^0.1.16",
+    "axios": "^0.18.0",
     "eslint": "^5.7.0",
     "eslint-plugin-vue": "^4.7.1",
     "graphql": "^14.0.2",
