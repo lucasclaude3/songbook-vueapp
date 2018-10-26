@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from './views/HomePage.vue'
-import LoginPage from './views/LoginPage.vue'
-
+import LandingPage from './views/LandingPage.vue'
+import AppPage from './views/AppPage.vue'
 
 Vue.use(Router)
 
@@ -10,13 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HomePageRoute',
-      component: HomePage
+      name: 'LandingPageRoute',
+      component: LandingPage
     },
     {
       path: '/login',
-      name: 'LoginPageRoute',
-      component: LoginPage,
+      name: 'AppPageRoute',
+      component: AppPage,
     }
   ]
 })

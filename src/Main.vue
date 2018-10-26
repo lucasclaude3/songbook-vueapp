@@ -1,15 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div id="main">
+    <LandingPage/>
+    <!-- <div id="account">
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Login</router-link>
     </div>
-    <router-view/>
+    <router-view/> -->
   </div>
 </template>
 
+<script>
+import LandingPage from '@/views/LandingPage.vue';
+
+export default {
+  name: 'Main',
+  components: {
+    LandingPage,
+  }
+}
+</script>
+
 <style>
-#app {
+#main {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
