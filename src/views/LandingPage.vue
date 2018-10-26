@@ -2,7 +2,6 @@
   <div>
     <LandingHeaderComponent/>
     <LandingBodyComponent msg="OLA QUE TAL"/>
-    <img alt="Vue logo" src="../assets/songbook.png">
   </div>
 </template>
 
