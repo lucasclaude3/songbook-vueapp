@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button class="signup">Sign up</button>
-        <button class="signin">Sign in</button>
+        <b-button class="signup">Sign up</b-button>
+        <b-button class="signin">Sign in</b-button>
     </div>
 </template>
 
