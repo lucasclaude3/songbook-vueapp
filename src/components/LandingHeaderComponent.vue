@@ -11,12 +11,20 @@
         </div>
     </b-navbar>
 
-    <b-modal id="sign-in" title="Sign in">
-        <p class="my-4">Ola que tal</p>
-    </b-modal>
-
+    <SigninModal/>
 </div>
 </template>
+
+<script>
+import SigninModal from '@/components/SigninModal.vue'
+
+export default {
+    name: 'LandingHeaderComponent',
+    components: {
+        SigninModal,
+    }
+}
+</script>
 
 <style scoped>
     .sign-buttons button {
