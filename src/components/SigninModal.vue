@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   computed: {
     state () {
@@ -51,6 +53,22 @@ export default {
         }
         this.handleSubmit();
     },
+    handleSubmit() {
+      axios.post(
+        'http://localhost:3000/login',
+        {
+          username: this.username,
+          password: this.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+        }
+      )
+        .then(result => { console.log(result); });
+    }
   }
 }
 </script>
