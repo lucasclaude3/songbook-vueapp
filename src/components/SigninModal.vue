@@ -78,7 +78,7 @@ export default {
             }
           )
         })
-        .then((user) => { console.log(user.data); this.$store.dispatch('login', user.data); });
+        .then((user) => { this.$store.dispatch('login', user.data); });
     }
   }
 }
