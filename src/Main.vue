@@ -29,7 +29,8 @@ export default {
         });
       })
       .then((user) => { return this.$store.dispatch('login', user.data); })
-      .finally(() => { this.$store.dispatch('loaded'); });
+      .finally(() => { this.$store.dispatch('loaded'); })
+      .catch(() => { /* No user authenticated */ });
   }
 }
 </script>

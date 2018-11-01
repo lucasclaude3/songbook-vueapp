@@ -23,7 +23,7 @@ import axios from 'axios';
 export default {
   computed: {
     state () {
-      return ((this.username.length > 0) && (this.password.length > 0)) ? true : false
+      return ((this.username.length > 0) && (this.password.length > 0) && !this.badRequest) ? true : false
     },
     invalidFeedback () {
       if (!this.username) {
@@ -31,6 +31,9 @@ export default {
       }
       if (!this.password) {
           return 'Please enter your password';
+      }
+      if (this.badRequest) {
+          return this.badRequest + 'Try again.';
       }
       return '';
     },
@@ -42,6 +45,7 @@ export default {
     return {
       username: '',
       password: '',
+      badRequest: '',
     }
   },
   methods: {
@@ -65,8 +69,7 @@ export default {
             'Content-Type': 'application/json',
           },
           withCredentials: true,
-        }
-      )
+        })
         .then(() => {
           return axios.get(
             'http://localhost:3000/me',
@@ -78,7 +81,14 @@ export default {
             }
           )
         })
-        .then((user) => { this.$store.dispatch('login', user.data); });
+        .then((user) => { this.$store.dispatch('login', user.data); })
+        .catch((error) => {
+          this.badRequest = error.response.data;
+          setTimeout(this.clearBadRequest, 2000);
+        })
+    },
+    clearBadRequest() {
+      this.badRequest = '';
     }
   }
 }
