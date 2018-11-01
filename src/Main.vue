@@ -1,6 +1,6 @@
 <template>
   <div id="main" v-if="!this.$store.state.loading" >
-    <AppPage v-if="this.$store.state.user.id" />
+    <AppPage v-if="this.$store.state.user" />
     <LandingPage v-else />
   </div>
 </template>
