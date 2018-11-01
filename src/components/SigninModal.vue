@@ -67,7 +67,18 @@ export default {
           withCredentials: true,
         }
       )
-        .then(result => { console.log(result); });
+        .then(() => {
+          return axios.get(
+            'http://localhost:3000/me',
+            {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              withCredentials: true,
+            }
+          )
+        })
+        .then((user) => { console.log(user.data); this.$store.dispatch('login', user.data); });
     }
   }
 }
