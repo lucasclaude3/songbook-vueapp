@@ -1,7 +1,7 @@
 <template>
   <div>
     <LandingHeaderComponent/>
-    <LandingBodyComponent msg="OLA QUE TAL"/>
+    <LandingBodyComponent msg="HOLA QUE TAL"/>
   </div>
 </template>
 
