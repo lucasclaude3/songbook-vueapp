@@ -1,10 +1,16 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <router-link to='/home'>Home</router-link>
+    <router-link to='/song'>Add a song</router-link>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import router from './../router.js'
+router.replace('/home');
+
 export default {
   name: 'AppBodyComponent',
   props: {

@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LandingPage from './views/LandingPage.vue'
-import AppPage from './views/AppPage.vue'
+import HomeComponent from './components/HomeComponent'
+import SongComponent from './components/SongComponent'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'LandingPageRoute',
-      component: LandingPage
+      path: '/home',
+      name: 'home',
+      component: HomeComponent
     },
     {
-      path: '/login',
-      name: 'AppPageRoute',
-      component: AppPage,
-    }
+      path: '/song',
+      name: 'song',
+      component: SongComponent
+    },
   ]
 })

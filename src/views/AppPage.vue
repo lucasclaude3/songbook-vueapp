@@ -10,7 +10,7 @@ import AppHeaderComponent from '@/components/AppHeaderComponent.vue';
 import AppBodyComponent from '@/components/AppBodyComponent.vue';
 
 export default {
-    name: 'login',
+    name: 'AppPage',
     components: {
         AppHeaderComponent,
         AppBodyComponent
