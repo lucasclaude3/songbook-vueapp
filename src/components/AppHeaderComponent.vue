@@ -9,16 +9,19 @@
             <b-button class="signin" v-b-modal.sign-in>Sign out</b-button>
         </div>
     </b-navbar>
+
+    <SignoutModal />
 </div>
 </template>
 
 <script>
-import SigninModal from '@/components/SigninModal.vue'
+import SignoutModal from '@/components/SignoutModal.vue'
 
 export default {
     name: 'AppHeaderComponent',
     components: {
-    }
+        SignoutModal,
+    },
 }
 </script>
 

@@ -28,6 +28,9 @@ export default new Vuex.Store({
     login({ commit }, user) {
       commit('login', user);
     },
+    logout({ commit }) {
+      commit('logout');
+    },
     loading({ commit }) {
       commit('loading');
     },
