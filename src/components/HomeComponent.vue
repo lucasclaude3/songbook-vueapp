@@ -18,7 +18,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('songs')
+    axios.get('me/songs')
       .then((response) => { this.songs = response.data; });
   }
 }
