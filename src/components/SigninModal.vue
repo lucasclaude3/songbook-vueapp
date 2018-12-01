@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '../api/axiosWrapper';
 
 export default {
   computed: {
@@ -59,27 +59,13 @@ export default {
     },
     handleSubmit() {
       axios.post(
-        'http://localhost:3000/login',
+        'login',
         {
           username: this.username,
           password: this.password,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          withCredentials: true,
         })
         .then(() => {
-          return axios.get(
-            'http://localhost:3000/me',
-            {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              withCredentials: true,
-            }
-          )
+          return axios.get('me')
         })
         .then((user) => { this.$store.dispatch('login', user.data); })
         .catch((error) => {

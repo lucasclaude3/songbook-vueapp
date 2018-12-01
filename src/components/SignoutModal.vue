@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '../api/axiosWrapper';
 
 export default {
   methods: {
     handleSubmit() {
-      axios.get('http://localhost:3000/logout')
+      axios.get('logout')
         .then(() => { this.$store.dispatch('logout'); });
     },
   }

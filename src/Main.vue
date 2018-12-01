@@ -8,7 +8,7 @@
 <script>
 import LandingPage from '@/views/LandingPage.vue';
 import AppPage from '@/views/AppPage.vue';
-import axios from 'axios';
+import axios from './api/axiosWrapper';
 
 export default {
   name: 'Main',
@@ -19,14 +19,7 @@ export default {
   beforeCreate: function () {
     this.$store.dispatch('loading')
       .then(() => {
-        return axios.get(
-          'http://localhost:3000/me',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          withCredentials: true,
-        });
+        return axios.get('me');
       })
       .then((user) => { return this.$store.dispatch('login', user.data); })
       .finally(() => { this.$store.dispatch('loaded'); })

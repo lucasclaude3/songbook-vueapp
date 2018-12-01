@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '../api/axiosWrapper';
 
 export default {
   name: 'HomeComponent',
@@ -18,14 +18,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(
-      'http://localhost:3000/songs',
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true,
-      })
+    axios.get('songs')
       .then((response) => { this.songs = response.data; });
   }
 }
