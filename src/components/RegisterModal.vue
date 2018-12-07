@@ -1,8 +1,8 @@
 <template>
-    <b-modal id="sign-in" title="Sign in" @ok="handleOk">
+    <b-modal id="register" title="Register" @ok="handleOk">
         <p class="my-4">Ola que tal</p>
             <b-form-group
-                id="sign-in-fields"
+                id="register-fields"
                 label="Enter your name"
                 :invalid-feedback="invalidFeedback"
                 :valid-feedback="validFeedback"
@@ -25,13 +25,13 @@ export default {
     },
     invalidFeedback () {
       if (!this.username) {
-          return 'You must specify your username';
+          return 'You must specify a username';
       }
       if (!this.password) {
-          return 'Please enter your password';
+          return 'Please choose a password';
       }
       if (this.badRequest) {
-          return this.badRequest + 'Try again.';
+          return this.badRequest;
       }
       return '';
     },
@@ -57,10 +57,16 @@ export default {
     },
     handleSubmit() {
       axios.post(
-        'login',
+        'register',
         {
           username: this.username,
           password: this.password,
+        })
+        .then((user) => {
+          return axios.post('login', {
+            username: this.username,
+            password: this.password,
+          })
         })
         .then(() => {
           return axios.get('me')

@@ -6,22 +6,25 @@
             SongBook
         </b-navbar-brand>
         <div class="sign-buttons">
-            <b-button class="signup">Sign up</b-button>
-            <b-button class="signin" v-b-modal.sign-in>Sign in</b-button>
+            <b-button class="register" v-b-modal.register>Register</b-button>
+            <b-button class="sign-in" v-b-modal.sign-in>Sign in</b-button>
         </div>
     </b-navbar>
 
     <SigninModal/>
+    <RegisterModal/>
 </div>
 </template>
 
 <script>
 import SigninModal from '@/components/SigninModal.vue'
+import RegisterModal from '@/components/RegisterModal.vue'
 
 export default {
     name: 'LandingHeaderComponent',
     components: {
         SigninModal,
+        RegisterModal,
     }
 }
 </script>

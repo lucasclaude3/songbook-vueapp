@@ -6,7 +6,7 @@
             SongBook
         </b-navbar-brand>
         <div class="sign-buttons">
-            <b-button class="signin" v-b-modal.sign-in>Sign out</b-button>
+            <b-button class="sign-in" v-b-modal.sign-in>Sign out</b-button>
         </div>
     </b-navbar>
 
