@@ -1,16 +1,15 @@
 <template>
     <b-modal id="register" title="Register" @ok="handleOk">
         <p class="my-4">Ola que tal</p>
-            <b-form-group
-                id="register-fields"
-                label="Enter your name"
-                :invalid-feedback="invalidFeedback"
-                :valid-feedback="validFeedback"
-                :state="state"
-            >
+        <b-form-group
+          id="register-fields"
+          label="Enter your name"
+          :invalid-feedback="invalidFeedback"
+          :valid-feedback="validFeedback"
+          :state="state">
 
-            <b-form-input id="input1" :state="state" v-model.trim="username"></b-form-input>
-            <b-form-input id="input2" :state="state" v-model.trim="password" type="password"></b-form-input>
+          <b-form-input id="input1" :state="state" v-model.trim="username"></b-form-input>
+          <b-form-input id="input2" :state="state" v-model.trim="password" type="password"></b-form-input>
         </b-form-group>
     </b-modal>
 </template>
