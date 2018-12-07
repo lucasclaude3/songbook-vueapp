@@ -3,7 +3,7 @@
     <b-navbar class="ml-auto">
         <b-navbar-brand>
             <img src="./../assets/songbook.png" alt="BV" width="30">
-            SongBoo
+            SongBook
         </b-navbar-brand>
         <div class="sign-buttons">
             <b-button class="signup">Sign up</b-button>
