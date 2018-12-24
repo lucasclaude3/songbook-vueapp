@@ -2,6 +2,7 @@
   <div id="main" v-if="!this.$store.state.loading" >
     <AppPage v-if="this.$store.state.user" />
     <LandingPage v-else />
+    <slideout-panel></slideout-panel>
   </div>
 </template>
 
@@ -41,4 +42,17 @@ export default {
     position: absolute;
     z-index: -1;
   }
+
+  .slideout:after {
+  content: "";
+  background-color: orange;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
 </style>

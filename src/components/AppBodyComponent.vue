@@ -23,7 +23,4 @@ export default {
   div#app-body {
     padding-left: 20px;
   }
-  .btn {
-    margin-right: 10px;
-  }
 </style>
