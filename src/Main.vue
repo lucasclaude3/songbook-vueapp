@@ -34,7 +34,7 @@ export default {
     background-image: url('./assets/songbook-background.jpg');
     background-size: cover;
     opacity: 0.5;
-    top: 0;
+    top: 57px;
     left: 0;
     bottom: 0;
     right: 0;
