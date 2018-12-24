@@ -8,7 +8,7 @@
 <script>
 import LandingPage from '@/views/LandingPage.vue';
 import AppPage from '@/views/AppPage.vue';
-import axios from './api/axiosWrapper';
+import axios from '@/api/axiosWrapper';
 
 export default {
   name: 'Main',

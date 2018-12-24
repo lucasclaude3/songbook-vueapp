@@ -1,14 +1,14 @@
 <template>
     <div>
       <h1>HOME</h1>
-      <ul id='songs'>
+      <ul>
         <li v-for="song in songs" :key="song.id">{{ song.songName }}</li>
       </ul>
     </div>
 </template>
 
 <script>
-import axios from '../api/axiosWrapper';
+import axios from '@/api/axiosWrapper';
 
 export default {
   name: 'HomeComponent',
@@ -23,9 +23,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  h1 {
-    margin-top: 20px;
-  }
-</style>

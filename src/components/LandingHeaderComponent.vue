@@ -2,7 +2,7 @@
 <div>
     <b-navbar class="ml-auto">
         <b-navbar-brand>
-            <img src="./../assets/songbook.png" alt="BV" width="30">
+            <img src="@/assets/songbook.png" alt="BV" width="30">
             SongBook
         </b-navbar-brand>
         <div class="sign-buttons">

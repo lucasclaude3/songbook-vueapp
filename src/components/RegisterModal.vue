@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from '../api/axiosWrapper';
+import axios from '@/api/axiosWrapper';
 
 export default {
   computed: {

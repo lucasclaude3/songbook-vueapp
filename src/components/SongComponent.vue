@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from '../api/axiosWrapper';
+import axios from '@/api/axiosWrapper';
 
 export default {
   data () {
@@ -55,5 +55,4 @@ export default {
     margin-top: 10px;
     max-width: calc(100% - 20px);
   }
-
 </style>
