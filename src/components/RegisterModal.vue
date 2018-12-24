@@ -1,6 +1,6 @@
 <template>
     <b-modal id="register" title="Register" @ok="handleOk">
-        <p class="my-4">Ola que tal</p>
+        <p class="my-4">Hola que tal</p>
         <b-form-group
           id="register-fields"
           label="Enter your name"
@@ -61,7 +61,7 @@ export default {
           username: this.username,
           password: this.password,
         })
-        .then((user) => {
+        .then(() => {
           return axios.post('login', {
             username: this.username,
             password: this.password,

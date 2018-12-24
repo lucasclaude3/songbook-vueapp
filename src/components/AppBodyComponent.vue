@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-link to='/home'>Home</router-link>
-    <router-link to='/song'>Add a song</router-link>
+  <div id="app-body">
+    <router-link class="btn sign-in btn-secondary" to='/home'>Home</router-link>
+    <router-link class="btn sign-in btn-secondary" to='/song'>Add a song</router-link>
 
     <router-view></router-view>
   </div>
@@ -19,8 +19,11 @@ export default {
 }
 </script>
 
-<style scoped>
-  h1 {
-    text-align: center;
+<style>
+  div#app-body {
+    padding-left: 20px;
+  }
+  .btn {
+    margin-right: 10px;
   }
 </style>

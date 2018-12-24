@@ -1,6 +1,6 @@
 <template>
     <b-modal id="sign-in" title="Sign in" @ok="handleOk">
-        <p class="my-4">Ola que tal</p>
+        <p class="my-4">Hola que tal</p>
             <b-form-group
                 id="sign-in-fields"
                 label="Enter your name"

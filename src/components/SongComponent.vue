@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Add a new song</h1>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form id="add-song-form" @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-input id="song" v-model.trim="form.song" placeholder="Song name"></b-form-input>
       <b-form-input id="artist" v-model.trim="form.artist" placeholder="Artist name"></b-form-input>
       <b-form-textarea id="lyrics" :rows="3" :max-rows="6" v-model.trim="form.lyrics" placeholder="Lyrics"></b-form-textarea>
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    onSubmit (evt) {
+    onSubmit () {
       axios.post('me/songs', {
         songName: this.form.song,
         artistName: this.form.artist,
@@ -36,7 +36,7 @@ export default {
         chords: this.form.chords,
       });
     },
-    onReset (evt) {
+    onReset () {
       /* Reset our form values */
       this.form.song = '';
       this.form.artist = '';
@@ -51,4 +51,9 @@ export default {
 </script>
 
 <style scoped>
+  #add-song-form > * {
+    margin-top: 10px;
+    max-width: calc(100% - 20px);
+  }
+
 </style>
