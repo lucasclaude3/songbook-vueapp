@@ -1,9 +1,9 @@
 <template>
   <div id="song-panel">
     <h1>{{ song.songName }}</h1>
-    <div>{{ song.artistName }}</div>
-    <div>{{ song.lyrics }}</div>
-    <div>{{ song.chords }}</div>
+    <div class="song-metadata">{{ song.artistName }}</div>
+    <div class="song-metadata">{{ song.lyrics }}</div>
+    <div class="song-metadata">{{ song.chords }}</div>
     <br/>
     <button class="btn sign-in btn-secondary" v-on:click.prevent="closePanel">Close</button>
   </div>
@@ -33,5 +33,8 @@ export default {
     margin: 20px 30px;
     border-radius: 7px;
     box-shadow: 2px 4px 18px #5a6268;
+  }
+  .song-metadata {
+    white-space: pre;
   }
 </style>

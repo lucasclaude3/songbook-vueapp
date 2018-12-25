@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomeComponent from './components/HomeComponent'
-import SongComponent from './components/SongComponent'
+import AddSongComponent from './components/AddSongComponent'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: HomeComponent
     },
     {
-      path: '/song',
-      name: 'song',
-      component: SongComponent
+      path: '/add-song',
+      name: 'add-song',
+      component: AddSongComponent
     },
   ]
 })
