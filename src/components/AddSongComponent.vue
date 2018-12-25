@@ -1,7 +1,18 @@
 <template>
 <div>
   <div>
-    <h1>Add a new song</h1>
+    <div class="tab-header">
+      <h1>Add a new song</h1>
+      <b-alert :show="dismissCountDown"
+                dismissible
+                fade
+                variant="warning"
+                @dismissed="dismissCountDown=0"
+                @dismiss-count-down="countDownChanged"
+                class="created-alert">
+        New song successfully created!
+      </b-alert>
+    </div>
     <b-form id="add-song-form" @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-input id="song" v-model.trim="form.song" placeholder="Song name"></b-form-input>
       <b-form-input id="artist" v-model.trim="form.artist" placeholder="Artist name"></b-form-input>
@@ -11,15 +22,6 @@
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>
-  <b-alert :show="dismissCountDown"
-            dismissible
-            fade
-            variant="warning"
-            @dismissed="dismissCountDown=0"
-            @dismiss-count-down="countDownChanged"
-            class="created-alert">
-    New song successfully created!
-  </b-alert>
 
   <AddSongConfirmationModal :on-submit="onSubmit" :on-reset="onReset" :show-alert="showAlert" />
 </div>
@@ -82,7 +84,7 @@ export default {
     max-width: calc(100% - 20px);
   }
   .created-alert {
-    margin-right: 20px;
-    margin-top: 15px;
+    margin: 0px 20px;
+    vertical-align: super;
   }
 </style>

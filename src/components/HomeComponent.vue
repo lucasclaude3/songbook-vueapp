@@ -1,15 +1,17 @@
 <template>
     <div>
-      <h1>Home</h1>
-      <b-alert :show="dismissCountDown"
-                dismissible
-                fade
-                variant="warning"
-                @dismissed="dismissCountDown=0"
-                @dismiss-count-down="countDownChanged"
-                class="created-alert">
-        {{ alertMessage }}
-      </b-alert>
+      <div class="tab-header">
+        <h1>Home</h1>
+        <b-alert :show="dismissCountDown"
+                  dismissible
+                  fade
+                  variant="warning"
+                  @dismissed="dismissCountDown=0"
+                  @dismiss-count-down="countDownChanged"
+                  class="created-alert">
+          {{ alertMessage }}
+        </b-alert>
+      </div>
       <ul v-if="reversedSongs">
         <li v-for="song in reversedSongs" :key="song.id">
           <b-button variant="secondary" v-on:click.prevent="showPanel(song)">{{ song.songName }}</b-button>

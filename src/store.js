@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     loading: true,
-    songs: null,
+    songs: [],
     dismissSecs: 3,
     dismissCountDown: 0,
     showDismissibleAlert: false,
@@ -21,7 +21,11 @@ export default new Vuex.Store({
     },
     logout (state) {
       state.user = null;
-      state.songs = null;
+      state.songs = [];
+      state.dismissSecs = 3;
+      state.dismissCountDown = 0;
+      state.showDismissibleAlert = false;
+      state.alertMessage = '';
     },
     loading (state) {
       state.loading = true;

@@ -19,7 +19,6 @@
 
 <script>
 import SignoutModal from '@/components/SignoutModal.vue'
-import router from '@/router.js'
 
 export default {
     name: 'AppHeaderComponent',
