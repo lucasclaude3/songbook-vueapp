@@ -6,10 +6,15 @@
 
 <script>
 import axios from '@/api/axiosWrapper';
+import { mapMutations } from 'vuex';
 
 export default {
   props: ['songId', 'closePanel'],
   methods: {
+    ...mapMutations([
+      'removeSong',
+      'showAlert',
+    ]),
     handleSubmit() {
       axios.delete('me/songs', {
         data: {
@@ -17,8 +22,9 @@ export default {
         }
       })
       .then(() => {
-        this.$store.dispatch('removeSong', this.songId);
+        this.removeSong(this.songId);
         this.closePanel();
+        this.showAlert('The song has been correctly deleted.')
       });
     },
   },

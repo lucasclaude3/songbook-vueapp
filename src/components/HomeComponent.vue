@@ -8,11 +8,11 @@
                 @dismissed="dismissCountDown=0"
                 @dismiss-count-down="countDownChanged"
                 class="created-alert">
-        New song successfully created!
+        {{ alertMessage }}
       </b-alert>
       <ul v-if="reversedSongs">
         <li v-for="song in reversedSongs" :key="song.id">
-          <button v-on:click.prevent="showPanel(song)">{{ song.songName }}</button>
+          <b-button variant="secondary" v-on:click.prevent="showPanel(song)">{{ song.songName }}</b-button>
         </li>
       </ul>
     </div>
@@ -39,6 +39,7 @@ export default {
     },
     ...mapState({
       dismissCountDown: state => state.dismissCountDown,
+      alertMessage: state => state.alertMessage,
     }),
   },
   mounted() {
@@ -63,3 +64,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  li {
+    margin-bottom: 5px;
+  }
+</style>

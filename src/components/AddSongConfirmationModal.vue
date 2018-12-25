@@ -31,7 +31,7 @@ export default {
         if (goToHome) {
           router.replace('/home');
         }
-        this.showAlert();
+        this.showAlert('New song successfully added to songbook!');
       });
     },
   },

@@ -8,8 +8,8 @@
     <br/>
     <div class="song-metadata">{{ song.chords }}</div>
     <br/>
-    <b-button class="sign-in btn-secondary" v-on:click.prevent="closePanel">Close</b-button>
-    <b-button class="sign-in btn-danger" v-b-modal.delete-song>Delete Song</b-button>
+    <b-button variant="secondary" v-on:click.prevent="closePanel">Close</b-button>
+    <b-button variant="danger" v-b-modal.delete-song>Delete Song</b-button>
   </div>
 
   <DeleteSongModal :song-id="song.id" :close-panel="closePanel" />

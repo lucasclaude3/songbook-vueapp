@@ -13,6 +13,7 @@ export default new Vuex.Store({
     dismissSecs: 3,
     dismissCountDown: 0,
     showDismissibleAlert: false,
+    alertMessage: '',
   },
   mutations: {
     login (state, user) {
@@ -40,8 +41,9 @@ export default new Vuex.Store({
     countDownChanged (state, dismissCountDown) {
       state.dismissCountDown = dismissCountDown;
     },
-    showAlert (state) {
+    showAlert (state, alertMessage) {
       state.dismissCountDown = state.dismissSecs;
+      state.alertMessage = alertMessage;
     },
   },
   actions: {
