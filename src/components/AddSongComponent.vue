@@ -1,4 +1,5 @@
 <template>
+<div>
   <div>
     <h1>Add a new song</h1>
     <b-form id="add-song-form" @submit="onSubmit" @reset="onReset" v-if="show">
@@ -6,14 +7,18 @@
       <b-form-input id="artist" v-model.trim="form.artist" placeholder="Artist name"></b-form-input>
       <b-form-textarea id="lyrics" :rows="3" :max-rows="6" v-model.trim="form.lyrics" placeholder="Lyrics"></b-form-textarea>
       <b-form-textarea id="chords" :rows="3" :max-rows="6" v-model.trim="form.chords" placeholder="Chords"></b-form-textarea>
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button variant="primary" v-b-modal.add-song>Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>
+
+  <AddSongConfirmationModal :on-submit="onSubmit" :on-reset="onReset" />
+</div>
 </template>
 
 <script>
 import axios from '@/api/axiosWrapper';
+import AddSongConfirmationModal from '@/components/AddSongConfirmationModal.vue';
 
 export default {
   data () {
@@ -27,6 +32,9 @@ export default {
       show: true,
     }
   },
+  components: {
+    AddSongConfirmationModal,
+  },
   methods: {
     onSubmit () {
       axios.post('me/songs', {
@@ -34,7 +42,8 @@ export default {
         artistName: this.form.artist,
         lyrics: this.form.lyrics,
         chords: this.form.chords,
-      });
+      })
+      .then(response => response.data);
     },
     onReset () {
       /* Reset our form values */
