@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>HOME</h1>
+      <h1>Home</h1>
       <ul>
         <li v-for="song in this.$store.state.songs" :key="song.id">
           <button v-on:click.prevent="showPanel(song)">{{ song.songName }}</button>
