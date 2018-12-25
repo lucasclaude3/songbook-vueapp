@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     user: null,
     loading: true,
+    songs: null,
   },
   mutations: {
     login (state, user) {
@@ -16,12 +17,22 @@ export default new Vuex.Store({
     },
     logout (state) {
       state.user = null;
+      state.songs = null;
     },
     loading (state) {
       state.loading = true;
     },
     loaded (state) {
       state.loading = false;
+    },
+    loadSongs (state, songs) {
+      state.songs = songs;
+    },
+    addSong (state, song) {
+      state.songs.push(song);
+    },
+    removeSong (state, songId) {
+      state.songs = state.songs.filter(s => s.id != songId);
     }
   },
   actions: {
@@ -36,6 +47,15 @@ export default new Vuex.Store({
     },
     loaded({ commit }) {
       commit('loaded');
+    },
+    loadSongs({ commit }, songs) {
+      commit('loadSongs', songs);
+    },
+    addSong({ commit }, song) {
+      commit('addSong', song);
+    },
+    removeSong({ commit }, songId) {
+      commit('removeSong', songId);
     }
   },
   plugins: [

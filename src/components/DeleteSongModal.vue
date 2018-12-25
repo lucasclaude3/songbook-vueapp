@@ -8,13 +8,17 @@
 import axios from '@/api/axiosWrapper';
 
 export default {
-  props: ['songId'],
+  props: ['songId', 'closePanel'],
   methods: {
     handleSubmit() {
       axios.delete('me/songs', {
         data: {
           songId: this.songId,
         }
+      })
+      .then(() => {
+        this.$store.dispatch('removeSong', this.songId);
+        this.closePanel();
       });
     },
   },

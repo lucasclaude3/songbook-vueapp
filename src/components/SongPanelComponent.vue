@@ -10,7 +10,7 @@
     <b-button class="sign-in btn-danger" v-b-modal.delete-song>Delete Song</b-button>
   </div>
 
-  <DeleteSongModal :song-id="song.id" />
+  <DeleteSongModal :song-id="song.id" :close-panel="closePanel" />
 </div>
 </template>
 
