@@ -1,9 +1,11 @@
 <template>
-<div>
+<div class="panel-container">
   <div id="song-panel">
     <h1>{{ song.songName }}</h1>
-    <div class="song-metadata">{{ song.artistName }}</div>
+    <h4 class="song-metadata">{{ song.artistName }}</h4>
+    <br/>
     <div class="song-metadata">{{ song.lyrics }}</div>
+    <br/>
     <div class="song-metadata">{{ song.chords }}</div>
     <br/>
     <b-button class="sign-in btn-secondary" v-on:click.prevent="closePanel">Close</b-button>
@@ -37,6 +39,10 @@ export default {
 </script>
 
 <style>
+  .panel-container {
+    background-color: rgb(255, 165, 0, 0.5);
+    padding: 10px 20px;
+  }
   #song-panel {
     background-color: white;
     padding: 10px 20px 20px;
