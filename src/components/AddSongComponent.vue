@@ -11,8 +11,17 @@
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>
+  <b-alert :show="dismissCountDown"
+            dismissible
+            fade
+            variant="warning"
+            @dismissed="dismissCountDown=0"
+            @dismiss-count-down="countDownChanged"
+            class="created-alert">
+    New song successfully created!
+  </b-alert>
 
-  <AddSongConfirmationModal :on-submit="onSubmit" :on-reset="onReset" />
+  <AddSongConfirmationModal :on-submit="onSubmit" :on-reset="onReset" :show-alert="showAlert" />
 </div>
 </template>
 
@@ -30,6 +39,9 @@ export default {
         chords: '',
       },
       show: true,
+      dismissSecs: 3,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
     }
   },
   components: {
@@ -54,14 +66,24 @@ export default {
       /* Trick to reset/clear native browser form validation state */
       this.show = false;
       this.$nextTick(() => { this.show = true });
-    }
+    },
+    countDownChanged (dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert () {
+      this.dismissCountDown = this.dismissSecs;
+    },
   }
 }
 </script>
 
-<style scoped>
+<style>
   #add-song-form > * {
     margin-top: 10px;
     max-width: calc(100% - 20px);
+  }
+  .created-alert {
+    margin-right: 20px;
+    margin-top: 15px;
   }
 </style>

@@ -58,6 +58,11 @@ export default new Vuex.Store({
       commit('removeSong', songId);
     }
   },
+  getters: {
+    reversedSongs: state => {
+        return state.songs && state.songs.slice().reverse();
+    },
+  },
   plugins: [
     createPersistedState({
       getState: (key) => Cookies.getJSON(key),

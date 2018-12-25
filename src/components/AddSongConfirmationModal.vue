@@ -14,7 +14,7 @@ import axios from '@/api/axiosWrapper';
 import router from '@/router.js'
 
 export default {
-  props: ['song', 'onSubmit', 'onReset'],
+  props: ['song', 'onSubmit', 'onReset', 'showAlert'],
   data () {
     return {
       show: false,
@@ -31,6 +31,7 @@ export default {
         if (goToHome) {
           router.replace('/home');
         }
+        this.showAlert();
       });
     },
   },

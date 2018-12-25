@@ -40,7 +40,7 @@ export default {
 
 <style>
   .panel-container {
-    background-color: rgb(255, 165, 0, 0.5);
+    background-color: rgb(255, 243, 205);
     padding: 10px 20px;
   }
   #song-panel {

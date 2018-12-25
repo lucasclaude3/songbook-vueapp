@@ -1,8 +1,8 @@
 <template>
     <div>
       <h1>Home</h1>
-      <ul>
-        <li v-for="song in this.$store.state.songs" :key="song.id">
+      <ul v-if="reversedSongs">
+        <li v-for="song in reversedSongs" :key="song.id">
           <button v-on:click.prevent="showPanel(song)">{{ song.songName }}</button>
         </li>
       </ul>
@@ -23,6 +23,11 @@ export default {
       songs: [],
     };
   },
+  computed: {
+    reversedSongs() {
+      return this.$store.getters.reversedSongs;
+    },
+  },
   mounted() {
     axios.get('me/songs')
       .then((response) => { this.$store.dispatch('loadSongs', response.data); });
@@ -38,6 +43,6 @@ export default {
         }
       });
     }
-  }
+  },
 }
 </script>
