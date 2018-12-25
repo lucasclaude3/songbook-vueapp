@@ -10,6 +10,9 @@ export default new Vuex.Store({
     user: null,
     loading: true,
     songs: null,
+    dismissSecs: 3,
+    dismissCountDown: 0,
+    showDismissibleAlert: false,
   },
   mutations: {
     login (state, user) {
@@ -33,7 +36,13 @@ export default new Vuex.Store({
     },
     removeSong (state, songId) {
       state.songs = state.songs.filter(s => s.id != songId);
-    }
+    },
+    countDownChanged (state, dismissCountDown) {
+      state.dismissCountDown = dismissCountDown;
+    },
+    showAlert (state) {
+      state.dismissCountDown = state.dismissSecs;
+    },
   },
   actions: {
     login({ commit }, user) {
@@ -56,7 +65,7 @@ export default new Vuex.Store({
     },
     removeSong({ commit }, songId) {
       commit('removeSong', songId);
-    }
+    },
   },
   getters: {
     reversedSongs: state => {

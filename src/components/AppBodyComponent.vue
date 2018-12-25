@@ -22,5 +22,6 @@ export default {
 <style>
   div#app-body {
     padding-left: 20px;
+    margin-top: 15px;
   }
 </style>

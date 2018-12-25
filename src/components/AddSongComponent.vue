@@ -28,8 +28,12 @@
 <script>
 import axios from '@/api/axiosWrapper';
 import AddSongConfirmationModal from '@/components/AddSongConfirmationModal.vue';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
+  components: {
+    AddSongConfirmationModal,
+  },
   data () {
     return {
       form: {
@@ -39,14 +43,11 @@ export default {
         chords: '',
       },
       show: true,
-      dismissSecs: 3,
-      dismissCountDown: 0,
-      showDismissibleAlert: false,
     }
   },
-  components: {
-    AddSongConfirmationModal,
-  },
+  computed: mapState({
+    dismissCountDown: state => state.dismissCountDown,
+  }),
   methods: {
     onSubmit () {
       return axios.post('me/songs', {
@@ -67,12 +68,10 @@ export default {
       this.show = false;
       this.$nextTick(() => { this.show = true });
     },
-    countDownChanged (dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
-    showAlert () {
-      this.dismissCountDown = this.dismissSecs;
-    },
+    ...mapMutations([
+      'countDownChanged',
+      'showAlert',
+    ]),
   }
 }
 </script>
