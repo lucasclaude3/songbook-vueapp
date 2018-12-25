@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.post('me/songs', {
+      return axios.post('me/songs', {
         songName: this.form.song,
         artistName: this.form.artist,
         lyrics: this.form.lyrics,
