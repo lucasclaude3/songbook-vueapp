@@ -1,3 +1,5 @@
+require('dotenv').config({ path: __dirname + './../.env' });
+
 import Vue from 'vue'
 import Main from '@/Main.vue'
 import router from '@/router.js'
