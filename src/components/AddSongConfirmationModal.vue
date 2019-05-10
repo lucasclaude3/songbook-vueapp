@@ -23,7 +23,7 @@ export default {
   methods: {
     handleSubmit(goToHome) {
       this.onSubmit()
-      .then(([id]) => { return axios.get('me/songs/' + id); })
+      .then((id) => { return axios.get('me/songs/' + id); })
       .then(response => response.data)
       .then(([song]) => {
         this.$store.dispatch('addSong', song);
