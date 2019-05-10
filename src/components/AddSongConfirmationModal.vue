@@ -25,7 +25,7 @@ export default {
       this.onSubmit()
       .then((id) => { return axios.get('me/songs/' + id); })
       .then(response => response.data)
-      .then(([song]) => {
+      .then((song) => {
         this.$store.dispatch('addSong', song);
         this.onReset();
         this.show = false;
